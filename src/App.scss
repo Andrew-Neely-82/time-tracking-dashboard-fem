@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  font-family: "Rubrik", sans-serif;
+}
+
+$colors: (
+  work: hsl(15, 100%, 70%),
+  play: hsl(195, 74%, 62%),
+  study: hsl(348, 100%, 68%),
+  exercise: hsl(145, 58%, 55%),
+  social: hsl(264, 64%, 52%),
+  self-care: hsl(43, 84%, 65%),
+  Very-dark-blue: hsl(226, 43%, 10%),
+  Dark-blue: hsl(235, 46%, 20%),
+  Desaturated-blue: hsl(235, 45%, 61%),
+  Pale-Blue: hsl(236, 100%, 87%),
+);
+
+.App {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    gap: 1rem;
+
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem;
+    }
+
+    .activities-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      @media screen and (max-width: 700px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .container-theme {
+        position: relative;
+        // padding-top: 1rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        margin: 0.5rem;
+
+        img {
+          position: absolute;
+          top: -0.25rem;
+          right: -0.25rem;
+          width: 2rem;
+          z-index: 1;
+        }
+
+        .info-container {
+          background: map-get($colors, Very-dark-blue);
+          height: 100%;
+          border-top-right-radius: 1rem;
+          border-top-left-radius: 1rem;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.work {
+  background: map-get($colors, work);
+  background-image: url("./assets/svg/icon-work.svg");
+}
+.play {
+  background: map-get($colors, play);
+  background-image: url("./assets/svg/icon-play.svg");
+}
+.study {
+  background: map-get($colors, study);
+  background-image: url("./assets/svg/icon-study.svg");
+}
+.exercise {
+  background: map-get($colors, exercise);
+  background-image: url("./assets/svg/icon-exercise.svg");
+}
+.social {
+  background: map-get($colors, social);
+  background-image: url("./assets/svg/icon-social.svg");
+}
+.self {
+  background: map-get($colors, self-care);
+  background-image: url("./assets/svg/icon-self-care.svg");
+}
+
+.work,
+.play,
+.study,
+.exercise,
+.social,
+.self {
+  background-size: 3rem;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
